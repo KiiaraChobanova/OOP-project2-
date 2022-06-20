@@ -1,0 +1,14 @@
+First table
+Table number: 1
+Column number: 2
+INTEGER
+-1
+2
+3
+Column number: 3
+INTEGER
+5
+3
+2
+1
+6
