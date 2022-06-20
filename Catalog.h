@@ -2,7 +2,7 @@
 #include "table.h"
 
 template <class T>
-class Catalog : public Table<T>{
+class Catalog {
 
 private:
     unsigned int m_size;
@@ -25,11 +25,11 @@ public:
         cout << "\nCatalog constructor called\n";
     }
 
-    void getCatalog(){
+    void printCatalog(){
         cout << "\nSize of catalog is: " << m_size;
 
         for (Table<T>& i : m_tables) {
-            i.getTable();
+            i.printTable();
             cout << "==========\n";
         }
     }
@@ -60,16 +60,16 @@ public:
     void showtables(){
         cout << "\nShowing tables names... \n";
         for(int i = 0; i < m_size; ++i){
-            cout << m_tables[i].getTableName() << " ";
+            cout << m_tables[i].printTableName() << " ";
         }
     }
 
     void describe(const string name){ 
         try{
             for(int i = 0; i < m_size; ++i){
-                if(m_tables[i].getTableName() == name){
+                if(m_tables[i].printTableName() == name){
                 cout << "\nGeting columns types... ";
-                    m_tables[i].getTypesOfColumns();
+                    m_tables[i].printTypesOfColumns();
                     return;
                 }
             }
@@ -85,7 +85,7 @@ public:
     void select(unsigned int serialNumber, T value, string tableName){
         try{
             for(int i = 0; i < m_size; ++i){
-                if(m_tables[i].getTableName() == tableName){
+                if(m_tables[i].printTableName() == tableName){
                     m_tables[i].select(serialNumber, value);
                     return;
                 }
@@ -102,14 +102,14 @@ public:
     void rename(string oldName, string newName){
         cout << "Renaming... ";
         for(int i = 0; i < m_size; ++i){
-            if(m_tables[i].getTableName() == newName){
+            if(m_tables[i].printTableName() == newName){
                 cout << "\nThis name is not unique!\n";
                 return;
             }
         }
         try{
             for(int i = 0; i < m_size; ++i){
-                if(m_tables[i].getTableName() == oldName)
+                if(m_tables[i].printTableName() == oldName)
                     m_tables[i].setName(newName);
                     return;
             }
@@ -124,7 +124,7 @@ public:
     unsigned int count(string tableName, T searchValue){
         int counter = 0;
         for(int i = 0; i < m_size; ++i){
-            if(m_tables[i].getTableName() == tableName){
+            if(m_tables[i].printTableName() == tableName){
                 counter += m_tables[i].count(searchValue);        
             }
         }
@@ -135,7 +135,7 @@ public:
         cout << "\nInserting new row... \n";
         try{
             for(int i = 0; i < m_size; ++i){
-                if(m_tables[i].getTableName() == tableName){
+                if(m_tables[i].printTableName() == tableName){
                     m_tables[i].insert(newRow);
                     return;
                 }
@@ -155,7 +155,7 @@ public:
         Column<T> newColumn(newCells, type);
         try{
             for(int i = 0; i < m_size; ++i){
-                if(m_tables[i].getTableName() == tableName){
+                if(m_tables[i].printTableName() == tableName){
                     m_tables[i].addColumn(newColumn);
                     return;
                 }
@@ -172,8 +172,8 @@ public:
         cout << "Print table... ";
         try{
             for(int i = 0; i < m_size; ++i){
-                if(m_tables[i].getTableName() == tableName){
-                    m_tables[i].getTable();
+                if(m_tables[i].printTableName() == tableName){
+                    m_tables[i].printTable();
                     return;
                 }
             }
@@ -188,7 +188,7 @@ public:
     void myDelete(string tableName, unsigned int searchColumn,T searchValue){
         try{
             for(int i = 0; i < m_size; ++i)
-                if(m_tables[i].getTableName() == tableName){
+                if(m_tables[i].printTableName() == tableName){
                     m_tables[i].myDelete(searchColumn, searchValue);
                     return;
                 }
