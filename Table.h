@@ -1,4 +1,6 @@
-#pragma once
+#ifndef TABLE_H
+#define TABLE_H
+
 #include "Column.h"
 
 template <typename T>
@@ -193,3 +195,5 @@ public:
 
 template <typename T>
 unsigned int Table<T>::m_counter = 0;
+
+#endif
