@@ -2,7 +2,7 @@
 #include "Column.h"
 
 template <typename T>
-class Table : public Column<T>{
+class Table{
 
 protected:
     static unsigned int m_counter;
@@ -31,10 +31,10 @@ public:
         cout << "\nTable constructor called\n";
     }
 
-    void getTable(){
+    void printTable(){
         cout << "\nGetting table... " << "\n" << m_tableName << "\n" << "Table " << m_tableNumber << "\n" << "----------\n";
         for (Column<T>& i : m_columns) {
-            i.getColumn();
+            i.printColumn();
             cout << "----------\n";
         }
     }
@@ -55,7 +55,7 @@ public:
                 if(i == columnNumber)
                     swap(m_columns[i], m_columns[m_size-1]);
                     cout << "\nRemoving the column...";
-                    m_columns[m_size-1].getColumn();
+                    m_columns[m_size-1].printColumn();
                     m_columns.pop_back();
                     m_size--;
                     return;
@@ -68,7 +68,7 @@ public:
         }
     } 
 
-    void getTypesOfColumns(){
+    void printTypesOfColumns(){
         for(int i = 0; i < m_size; ++i){
             cout << m_columns[i].getType() << " ";
         }
@@ -165,11 +165,11 @@ public:
         }
     }
 
-    unsigned int getTableNumber() const { return m_tableNumber; };
+    unsigned int printTableNumber() const { return m_tableNumber; };
 
-    unsigned int getColumnsNumber() const { return m_size; };
+    unsigned int printColumnsNumber() const { return m_size; };
     
-    string getTableName() const { return m_tableName; };
+    string printTableName() const { return m_tableName; };
 
     unsigned int getSize() const { return m_size; }
 
