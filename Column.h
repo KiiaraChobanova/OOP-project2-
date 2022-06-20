@@ -1,4 +1,6 @@
-#pragma once
+#ifndef COLUMN_H
+#define COLUMN_H
+
 #include <vector>
 #include <string>
 #include <iostream>
@@ -116,3 +118,5 @@ unsigned int Column<T>::m_columnID = 0;
 
 template <typename T>
 unsigned int Column<T>::m_cellID = 2;
+
+#endif
