@@ -1,4 +1,6 @@
-#pragma once
+#ifndef CATALOG_H
+#define CATALOG_H
+
 #include "table.h"
 
 template <class T>
@@ -214,3 +216,5 @@ public:
         otherTable.close();
     }
 };
+
+#endif 
