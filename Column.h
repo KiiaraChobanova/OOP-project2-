@@ -41,7 +41,7 @@ public:
         cout << "\nColumn constructor called\n";
     }
 
-    void getColumn(){ 
+    void printColumn(){ 
         cout << "\n" << "Column " << m_columnNumber << "\n" << m_type << "\n";
         for(int i = 0; i < m_size; ++i){
             cout << m_cells[i] << "\n";
